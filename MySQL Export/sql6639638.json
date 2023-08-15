@@ -1,0 +1,39 @@
+[
+  {
+    "type": "header",
+    "version": "4.7.1",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+  },
+  { "type": "database", "name": "sql6639638" },
+  {
+    "type": "table",
+    "name": "tasks",
+    "database": "sql6639638",
+    "data": [
+      {
+        "id": "0d9b0658-f4cd-4e4c-b49f-c1d63738b37f",
+        "heading": "Testing from app",
+        "description": "Testing from app",
+        "image": "img_1692077242810.jpeg",
+        "priority": "Low",
+        "dateTime": "1692077213158"
+      },
+      {
+        "id": "296b0fdb-0667-4f7b-a290-da5ec9fe84b5",
+        "heading": "Testing 2 - update",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are goin",
+        "image": "img_1692072332240.png",
+        "priority": "Medium",
+        "dateTime": "1692072332278"
+      },
+      {
+        "id": "3857f35d-fc8f-4ac4-a65d-8ad5a72e90ee",
+        "heading": "Heading",
+        "description": "Description",
+        "image": "img_1692072404041.jpeg",
+        "priority": "Low",
+        "dateTime": "1692072404042"
+      }
+    ]
+  }
+]

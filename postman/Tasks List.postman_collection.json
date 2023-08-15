@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "5ab914e6-578f-416e-8d33-426a02560ce7",
+		"name": "Tasks List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17911440"
+	},
+	"item": [
+		{
+			"name": "Add new Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"heading\":\"Adding new task from postman\",\r\n    \"description\":\"Adding new task description from postman\",\r\n    \"image\":\"postman_img.jpeg\",\r\n    \"priority\":\"High\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tasks-nodejs-mysql.onrender.com/api/task",
+					"protocol": "https",
+					"host": [
+						"tasks-nodejs-mysql",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task By Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"heading\": \"Testing 2 - update\",\r\n    \"description\": \"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are goin\",\r\n    \"priority\": \"Medium\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tasks-nodejs-mysql.onrender.com/api/task/296b0fdb-0667-4f7b-a290-da5ec9fe84b5",
+					"protocol": "https",
+					"host": [
+						"tasks-nodejs-mysql",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"task",
+						"296b0fdb-0667-4f7b-a290-da5ec9fe84b5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tasks-nodejs-mysql.onrender.com/api/task/296b0fdb-0667-4f7b-a290-da5ec9fe84b5",
+					"protocol": "https",
+					"host": [
+						"tasks-nodejs-mysql",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"task",
+						"296b0fdb-0667-4f7b-a290-da5ec9fe84b5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tasks-nodejs-mysql.onrender.com/api/task/all",
+					"protocol": "https",
+					"host": [
+						"tasks-nodejs-mysql",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"task",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://tasks-nodejs-mysql.onrender.com/api/task/65957fa6-1112-4814-8778-af73074c61b7",
+					"protocol": "https",
+					"host": [
+						"tasks-nodejs-mysql",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"task",
+						"65957fa6-1112-4814-8778-af73074c61b7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
