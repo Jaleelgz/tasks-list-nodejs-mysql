@@ -14,6 +14,7 @@ Task.create = function (newTask, result) {
   dbConn.query("INSERT INTO tasks set ?", newTask, function (err, res) {
     if (err) {
       console.log("error: ", err);
+
       result(
         {
           error: true,
@@ -42,21 +43,24 @@ Task.findById = function (id, result) {
 };
 
 Task.findAll = function (result) {
-  dbConn.query("Select * from tasks ORDER BY dateTime ASC", function (err, res) {
-    if (err) {
-      console.log("error: ", err);
-      result(
-        {
-          error: true,
-          message: err?.sqlMessage ?? "Failed to fetch tasks!",
-          status: 400,
-        },
-        null
-      );
-    } else {
-      result(null, res);
+  dbConn.query(
+    "Select * from tasks ORDER BY dateTime ASC",
+    function (err, res) {
+      if (err) {
+        console.log("error: ", err);
+        result(
+          {
+            error: true,
+            message: err?.sqlMessage ?? "Failed to fetch tasks!",
+            status: 400,
+          },
+          null
+        );
+      } else {
+        result(null, res);
+      }
     }
-  });
+  );
 };
 
 Task.update = function (id, task, result) {

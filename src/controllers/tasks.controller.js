@@ -1,5 +1,6 @@
 "use strict";
 const Task = require("../models/tasks.model");
+const UploadController = require("./upload.controller");
 const crypto = require("crypto");
 const moment = require("moment");
 
@@ -57,9 +58,41 @@ exports.update = function (req, res) {
   }
 };
 
-exports.delete = function (req, res) {
-  Task.delete(req.params.id, function (err, task) {
-    if (err) res.status(err?.status ?? 400).send(err);
-    res.json({ error: false, message: "Task successfully deleted" });
-  });
+exports.delete = async function (req, res) {
+  try {
+    const taskId = req.params.id;
+
+    Task.findById(taskId, async function (err, task) {
+      if (err) {
+        res.status(err?.status ?? 400).send(err);
+      } else {
+        if (!task) {
+          return res
+            .status(404)
+            .json({ error: true, message: "Task not found!" });
+        }
+
+        Task.delete(taskId, async function (deleteErr, deleteResult) {
+          if (deleteErr) {
+            res.status(deleteErr?.status ?? 400).send(deleteErr);
+          } else {
+            // Delete the associated image
+            if (task.image) {
+              await UploadController.deleteUploadedFile(task.image);
+            }
+
+            res.json({
+              error: false,
+              message: "Task and associated image successfully deleted",
+            });
+          }
+        });
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(error?.status ?? 400)
+      .json({ error: true, message: "Failed to delete task!" });
+  }
 };
